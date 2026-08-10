@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# uv / ruff
+.uv-cache/
+.ruff_cache/
+
+# Экспорт моделей — артефакты сборки, генерируются из кода
+out/
+
+# Редакторы / ОС
+.idea/
+.DS_Store

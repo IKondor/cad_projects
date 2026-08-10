@@ -1,0 +1,21 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
+
+  // Вьюер стартует сам при открытии файла с `import ocp_vscode`.
+  "OcpCadViewer.advanced.autostart": true,
+
+  // KEEP (значение по умолчанию) сохраняет камеру между запусками, из-за чего
+  // крупный объект при первом показе оказывается за кадром. RESET всегда
+  // вписывает модель в экран. Когда подберёшь удобный ракурс — ставь KEEP.
+  "OcpCadViewer.view.reset_camera": "RESET",
+
+  // Сетка по XY даёт чувство масштаба — полезно для мебели.
+  "OcpCadViewer.view.grid_XY": true,
+  "OcpCadViewer.view.axes0": true,
+
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
+}

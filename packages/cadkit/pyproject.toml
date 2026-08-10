@@ -1,0 +1,13 @@
+[project]
+name = "cadkit"
+version = "0.1.0"
+description = "Общие хелперы для CAD-проектов монорепо"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "cadquery>=2.8.0",
+    "ocp-vscode>=4.0.1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
