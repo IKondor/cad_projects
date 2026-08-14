@@ -1,0 +1,13 @@
+[project]
+name = "balcony-cabinet"
+version = "0.1.0"
+description = "Шкаф на балкон: внутренние 1100×500×720 мм"
+requires-python = ">=3.12,<3.13"
+dependencies = ["cadkit"]
+
+# Проекты — не пакеты, а наборы скриптов: собирать их незачем.
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+cadkit = { workspace = true }

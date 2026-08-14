@@ -38,7 +38,9 @@ def export(
     for fmt in formats:
         path = target / f"{name}.{fmt}"
         if isinstance(model, cq.Assembly):
-            model.save(str(path))
+            # У сборки собственный экспорт: он сохраняет дерево деталей,
+            # имена и цвета, чего `exporters.export` не умеет.
+            model.export(str(path))
         else:
             cq.exporters.export(model, str(path))
         written.append(path)

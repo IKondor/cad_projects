@@ -32,9 +32,15 @@ uv run python projects/starter-cube/model.py
 
 ```
 packages/           переиспользуемый код
-  cadkit/             экспорт, просмотр — общее для всех проектов
+  cadkit/
+    export.py         выгрузка в STEP/STL
+    view.py           показ в OCP CAD Viewer
+    panels.py         деталировка: список панелей, кромка, CSV/markdown
+    strength.py       расчёт полок на прогиб и ползучесть
+    views.py          ортогональные виды в PNG (вид спереди)
 projects/           сами проекты, по папке на изделие
   starter-cube/       шаблон: куб 2×2×2 м
+  balcony-cabinet/    шкаф на балкон, внутренние 1100×500×720
 ```
 
 Проект — это папка с одним или несколькими `.py` и любыми файлами рядом:
