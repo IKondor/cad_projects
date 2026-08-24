@@ -46,6 +46,7 @@ def front_elevation(
     dim_texts: tuple[str, ...] = (),
     body_color: str = "#e8d5b0",
     door_color: str = "#d9a441",
+    accent: tuple[str, ...] = ("фасад",),
 ) -> Path:
     """Вид спереди в PNG.
 
@@ -64,6 +65,7 @@ def front_elevation(
         dim_texts=dim_texts,
         body_color=body_color,
         door_color=door_color,
+        accent=accent,
     )
 
 
@@ -75,6 +77,7 @@ def side_elevation(
     dim_texts: tuple[str, ...] = (),
     body_color: str = "#e8d5b0",
     door_color: str = "#d9a441",
+    accent: tuple[str, ...] = ("фасад",),
 ) -> Path:
     """Вид сбоку в PNG. Показывает глубины — то, чего не видно на виде спереди.
 
@@ -89,6 +92,7 @@ def side_elevation(
         dim_texts=dim_texts,
         body_color=body_color,
         door_color=door_color,
+        accent=accent,
     )
 
 
@@ -101,6 +105,7 @@ def plan_view(
     body_color: str = "#e8d5b0",
     door_color: str = "#d9a441",
     z_range: tuple[float, float] | None = None,
+    accent: tuple[str, ...] = ("фасад",),
 ) -> Path:
     """Вид сверху (горизонтальное сечение) в PNG.
 
@@ -127,7 +132,7 @@ def plan_view(
     xs, ys = [], []
 
     for name, shape in parts:
-        is_door = "фасад" in name.lower()
+        is_door = any(a.lower() in name.lower() for a in accent)
         for poly in _plan_outlines(shape):
             px = [p[0] for p in poly]
             py = [p[1] for p in poly]
@@ -193,6 +198,7 @@ def _elevation(
     dim_texts: tuple[str, ...],
     body_color: str,
     door_color: str,
+    accent: tuple[str, ...] = ("фасад",),
 ) -> Path:
     """Общая машинерия обоих видов. `axis` — что откладывать по горизонтали."""
     parts = [(n, bb) for n, bb in _parts(asm) if not any(h.lower() in n.lower() for h in hide)]
@@ -214,7 +220,7 @@ def _elevation(
     fig, ax = plt.subplots(figsize=figsize)
 
     for name, bb in parts:
-        is_door = "фасад" in name.lower()
+        is_door = any(a.lower() in name.lower() for a in accent)
         start, length = span(bb)
         ax.add_patch(
             Rectangle(

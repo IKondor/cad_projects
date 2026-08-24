@@ -1,0 +1,13 @@
+[project]
+name = "cleaner-poof"
+version = "0.1.0"
+description = "Пуфик-гараж для робота-пылесоса Xiaomi Mijia M40, три исполнения"
+requires-python = ">=3.12,<3.13"
+dependencies = ["cadkit"]
+
+# Проекты — не пакеты, а наборы скриптов: собирать их незачем.
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+cadkit = { workspace = true }

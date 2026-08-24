@@ -7,6 +7,7 @@ members = [
     "balcony-cabinet",
     "cad-projects",
     "cadkit",
+    "cleaner-poof",
     "starter-cube",
 ]
 
@@ -272,6 +273,17 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/f0/e6/0386d43a261ff4e4b30c5857af7df877254b46bec7b9d1b74b6bf969a90b/charset_normalizer-3.4.9-cp312-cp312-win_arm64.whl", hash = "sha256:78fa18e436a1a0e58dbd7e02fc4473f3f32cceb12df9dfca542d075961c307d2", size = 152665, upload-time = "2026-07-07T14:33:33.711Z" },
     { url = "https://files.pythonhosted.org/packages/98/2b/f97f1c193fb855c345d678f5077d6926034db0722df74c8f057020e05a25/charset_normalizer-3.4.9-py3-none-any.whl", hash = "sha256:68e5f26a1ad57ded6d1cfb85331d1c1a195314756471d97758c48498bb4dcdf5", size = 64538, upload-time = "2026-07-07T14:34:56.993Z" },
 ]
+
+[[package]]
+name = "cleaner-poof"
+version = "0.1.0"
+source = { virtual = "projects/cleaner-poof" }
+dependencies = [
+    { name = "cadkit" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "cadkit", editable = "packages/cadkit" }]
 
 [[package]]
 name = "click"
