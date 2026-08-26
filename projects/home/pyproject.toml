@@ -1,0 +1,13 @@
+[project]
+name = "home"
+version = "0.1.0"
+description = "Параметрическая CAD-сцена квартиры для расстановки мебели"
+requires-python = ">=3.12,<3.13"
+dependencies = ["cadkit"]
+
+# Это набор скриптов с исходными материалами, а не устанавливаемый пакет.
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+cadkit = { workspace = true }
